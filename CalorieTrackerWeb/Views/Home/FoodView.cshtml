@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CalorieTrackerWeb.Models.DashboardFoodModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFat)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFat)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

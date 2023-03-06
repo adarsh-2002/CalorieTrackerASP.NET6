@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CalorieTrackerWeb.Models.DashboardWorkoutModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalWCals)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalWCals)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

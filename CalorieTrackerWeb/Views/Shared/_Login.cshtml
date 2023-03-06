@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<ul class="navbar-nav">
+    @{
+        ViewBag.Username = @HttpContextAccessor.HttpContext.Session.GetString("Username");
+        ViewBag.Admin = @HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+    @if (ViewBag.Username != null)
+    {
+        @if (ViewBag.Admin == "True")
+        {
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Users" asp-action="Index" title="List of users">List users</a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Users" asp-action="Details" title="Manage">Hello @ViewBag.Username !</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="FoodEntries" asp-action="Index" title="Add or view Food log">Food Log</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Workouts" asp-action="Index" title="Add or view Workouts">Workouts</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Login" asp-action="SignOut">
+                <button type="submit" class="nav-link btn btn-link">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Login" asp-action="SignUp">Sign up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Login" asp-action="Index">Login</a>
+        </li>
+    }
+</ul>

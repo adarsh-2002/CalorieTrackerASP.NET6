@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@model DashboardModel
+
+<h1>Dashboard</h1>
+<hr />
+
+<h2>Food Entries</h2>
+
+<partial name="FoodView" model=@Model.Foods/>
+
+<h2>Workouts</h2>
+
+<partial name="WorkoutView" model=@Model.Workouts />
+

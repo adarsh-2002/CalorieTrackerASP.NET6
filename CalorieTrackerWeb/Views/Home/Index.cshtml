@@ -1,0 +1,34 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{if(HttpContextAccessor.HttpContext.Session.GetInt32("ID") == null)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Calorie Tracker App</p>
+        <p>Track your calories and stay healthy</p>
+        <p>Sign up or login to get started</p>
+        <div class="btn btn-primary">
+            <a class="text-light" asp-controller="Login">Login</a>
+        </div>
+        <div class="btn btn-primary">
+            <a class="text-light" asp-action="SignUp" asp-controller="Login">Sign Up</a>
+        </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome @HttpContextAccessor.HttpContext.Session.GetString("Username")</h1>
+            <p>Calorie Tracker App</p>
+            <p>Track your calories and stay healthy</p>
+            <div class="btn btn-primary">
+                <a class="text-light" asp-action="Create" asp-controller="FoodEntries">Enter Food</a>
+            </div>
+            <div class="btn btn-primary">
+                <a class="text-light" asp-action="Create" asp-controller="Workouts">Add your workout</a>
+            </div>
+        </div>
+    }
+}
